@@ -5,9 +5,9 @@ import (
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
 
-	"github.com/hadenlabs/terraform-module-template/config"
+	"github.com/hadenlabs/terraform-aws-billing-alarms/config"
 	"github.com/stretchr/testify/assert"
-	"github.com/hadenlabs/terraform-module-template/internal/common/log"
+	"github.com/hadenlabs/terraform-aws-billing-alarms/internal/common/log"
 )
 
 func Test{{pascalCase testName}}Success(t *testing.T) {
@@ -15,12 +15,12 @@ func Test{{pascalCase testName}}Success(t *testing.T) {
 	conf := config.Must()
 	logger := log.Factory(*conf)
 	logger.Debugf(
-		"values for test terraform-module-template is",
+		"values for test terraform-aws-billing-alarms is",
 	)
 
 	terraformOptions := &terraform.Options{
 		// The path to where your Terraform code is located
-        TerraformDir: "replace-name-{{dashCase testName}}",
+        TerraformDir: "billing-{{dashCase testName}}",
 		Upgrade:      true,
 		Vars: map[string]interface{}{
 		},
